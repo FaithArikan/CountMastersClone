@@ -51,37 +51,6 @@ namespace _Project.Player
         }
 
         public int CloneAmount => cloneList.Count;
-
-        public void AAA()
-        {
-            CircleMovement();
-        }
-
-        private void CircleMovement()
-        {
-            var clones = GetComponentsInChildren<CloneDestroy>();
-            for (int i = 0; i < clones.Length; i++)
-            {
-                float theta = i * 2 * Mathf.PI / clones.Length;
-                
-                var vertical = MathF.Sin(theta);
-                var horizontal = MathF.Cos(theta); 
-         
-                var spawnDir = new Vector3 (Random.Range(horizontal, 1), 2, Random.Range(vertical, 1));
-                
-                clones[i].transform.DOMove(transform.position + spawnDir, 0.1f);
-            }
-        }
-        
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Enemy") 
-                                                        || other.gameObject.CompareTag("BossArea") 
-                                                        ||other.gameObject.CompareTag("Cliff") 
-                                                        ||other.gameObject.CompareTag("Boss"))
-                CircleMovement();
-        }
-
         private void OnTriggerEnter(Collider col)
         {
             if (col.gameObject.CompareTag("Finish"))
