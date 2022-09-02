@@ -1,4 +1,5 @@
-﻿using _Project.ScriptableObjects;
+﻿using System;
+using _Project.ScriptableObjects;
 using _Project.Scripts.Helpers;
 using JetBrains.Annotations;
 using TMPro;
@@ -12,6 +13,12 @@ namespace _Project.Scripts.Gameplay
         [SerializeField] private TextMeshProUGUI gateText;
         [SerializeField] [CanBeNull] private Collider otherGate;
         private Collider col;
+        private Canvas canvas;
+
+        private void OnEnable()
+        {
+            canvas = GetComponentInChildren<Canvas>();
+        }
 
         public GateSO GateSo
         {
@@ -22,7 +29,7 @@ namespace _Project.Scripts.Gameplay
         public Collider Collider
         {
             get => col;
-            set =>  col = value;
+            set => col = value;
         }
         
         public Collider OtherGate
@@ -30,7 +37,18 @@ namespace _Project.Scripts.Gameplay
             get => otherGate;
             set => otherGate = value;
         }
-        
+
+        public void RemoveOtherGateCollider()
+        {
+            if (otherGate != null)
+                otherGate.enabled = false;
+        }
+
+        public void RemoveCanvas()
+        {
+            if (canvas != null)
+                canvas.enabled = false;
+        }
         private void Awake()
         {
             col = GetComponent<Collider>();

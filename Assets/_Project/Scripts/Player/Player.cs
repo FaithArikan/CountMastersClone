@@ -64,18 +64,18 @@ namespace _Project.Player
                 switch (gate.GateSo.Features)
                 {
                     case GateFeatures.Addition:
-                        if (gate.OtherGate != null)
-                            gate.OtherGate.enabled = false;
                         gate.Collider.enabled = false;
-                        gate.GetComponentInChildren<Canvas>().enabled = false;
+                        if (gate.OtherGate != null)
+                            gate.RemoveOtherGateCollider();
+                        gate.RemoveCanvas();
                         CloneAdditionAction?.Invoke(gate.GateSo.Amount);
                         boxCol.size = new Vector3(CloneList.Count / 40, boxCol.size.y, CloneList.Count / 20);
                         break;
                     case GateFeatures.Multiplication:
-                        if (gate.OtherGate != null)
-                            gate.OtherGate.enabled = false;
                         gate.Collider.enabled = false;
-                        gate.GetComponentInChildren<Canvas>().enabled = false;
+                        if (gate.OtherGate != null)
+                            gate.RemoveOtherGateCollider();
+                        gate.RemoveCanvas();
                         CloneMultiplicationAction?.Invoke(gate.GateSo.Amount);
                         boxCol.size = new Vector3(CloneList.Count / 40, boxCol.size.y, CloneList.Count / 20);
                         break;
