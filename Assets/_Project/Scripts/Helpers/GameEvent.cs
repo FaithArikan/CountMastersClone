@@ -6,8 +6,7 @@ namespace CountMasters.Helpers
     [CreateAssetMenu(menuName = "GameEvent")]
     public class GameEvent : ScriptableObject
     {
-        private List<GameEventListener> listeners = new List<GameEventListener>();
-        private List<string> assetLocation = new List<string>();
+        private List<GameEventListener> listeners = new ();
 
         public void Invoke()
         {
@@ -18,15 +17,11 @@ namespace CountMasters.Helpers
         public void RegisterListener(GameEventListener listener)
         {
             listeners.Add(listener);
-            assetLocation.Add(
-                $"{listener.gameObject.scene.name}/{listener.transform.root.gameObject.name}/{listener.gameObject.name}");
         }
 
         public void UnregisterListener(GameEventListener listener)
         {
             listeners.Remove(listener);
-            assetLocation.Remove(
-                $"{listener.gameObject.scene.name}/{listener.transform.root.gameObject.name}/{listener.gameObject.name}");
         }
     }
 }

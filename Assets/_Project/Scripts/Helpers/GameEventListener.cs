@@ -16,7 +16,6 @@ namespace CountMasters.Helpers
         private void OnDisable()
         {
             foreach (var e in Events) e.UnregisterListener(this);
-
         }
 
         public void Invoke()
