@@ -17,9 +17,7 @@ The things I used in this clone project, project done in 4 days:
 
 7-Different canvasses for every different popup and it's management.
 
-8-State Pattern.
-
-9-Prefabs.
+8-Prefabs.
 
 https://user-images.githubusercontent.com/80701332/186979797-108233bc-ec31-48ba-b3e8-270d5bb4649b.mp4
 
