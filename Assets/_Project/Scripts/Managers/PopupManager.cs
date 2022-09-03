@@ -1,9 +1,9 @@
-﻿using _Project.ScriptableObjects;
-using _Project.Scripts.Helpers;
+﻿using CountMasters.Helpers;
+using CountMasters.ScriptableObjects;
 using UnityEngine;
 using DG.Tweening;
 
-namespace Assets._Project.Scripts.Managers
+namespace CountMasters.Managers
 {
     [RequireComponent(typeof(Canvas))]
     public class PopupManager : MonoBehaviour

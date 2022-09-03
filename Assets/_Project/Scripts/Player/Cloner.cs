@@ -1,9 +1,11 @@
-﻿using System;
-using _Project.ScriptableObjects;
-using _Project.Scripts.Gameplay.CanvasElement;
+﻿using CountMasters.Gameplay;
+using CountMasters.ScriptableObjects;
+using CountMasters.CanvasElement;
+using CountMasters.Helpers;
+using CountMasters.Variables;
 using UnityEngine;
 
-namespace _Project.Player
+namespace CountMasters.Player
 {
     public class Cloner : MonoBehaviour
     {

@@ -1,12 +1,10 @@
 using System;
-using System.Collections.Generic;
-using _Project.Scripts.Gameplay;
-using _Project.Scripts.Helpers;
-using DG.Tweening;
+using CountMasters.Helpers;
+using CountMasters.ScriptableObjects;
+using CountMasters.Gameplay;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-namespace _Project.Player
+namespace CountMasters.Player
 {
     public class Player : MonoBehaviour
     {

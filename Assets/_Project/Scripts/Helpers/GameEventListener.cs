@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace _Project.Scripts.Helpers
+namespace CountMasters.Helpers
 {
     public class GameEventListener : MonoBehaviour
     {

@@ -1,7 +1,7 @@
-﻿using _Project.Scripts.Helpers;
+﻿using CountMasters.Helpers;
 using UnityEngine;
 
-namespace _Project.ScriptableObjects
+namespace CountMasters.ScriptableObjects
 {
     [CreateAssetMenu(menuName = "Gate", order = 1)]
     public class GateSO : ScriptableObject

@@ -1,7 +1,7 @@
-﻿using _Project.Scripts.Helpers;
+﻿using CountMasters.Helpers;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay
+namespace CountMasters.Gameplay
 {
     public class BossController : MonoBehaviour
     {

@@ -1,7 +1,7 @@
-using _Project.Scripts.Helpers;
+using CountMasters.Helpers;
 using UnityEngine;
 
-namespace _Project.ScriptableObjects
+namespace CountMasters.ScriptableObjects
 {
     [CreateAssetMenu(menuName = "Resource", order = 0)]
     public class ResourceSO : ScriptableObject

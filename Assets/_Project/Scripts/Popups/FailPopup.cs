@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace _Project.Scripts.Popups
+namespace CountMasters.Popups
 {
     public class FailPopup : MonoBehaviour
     {

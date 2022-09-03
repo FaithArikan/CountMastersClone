@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Project.Scripts.Helpers
+namespace CountMasters.Helpers
 {
     /// <summary>
     ///     Singleton class.

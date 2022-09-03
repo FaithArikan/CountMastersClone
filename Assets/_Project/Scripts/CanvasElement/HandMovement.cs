@@ -1,9 +1,8 @@
 ﻿using System;
-using _Project.Scripts.Helpers;
 using DG.Tweening;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.CanvasElement
+namespace CountMasters.CanvasElement
 {
     public class HandMovement : MonoBehaviour
     {

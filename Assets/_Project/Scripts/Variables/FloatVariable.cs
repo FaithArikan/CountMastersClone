@@ -1,7 +1,7 @@
-﻿using _Project.Scripts.Helpers;
+﻿using CountMasters.Helpers;
 using UnityEngine;
 
-namespace _Project.Variables
+namespace CountMasters.Variables
 {
     [CreateAssetMenu(menuName = "Float")]
     public class FloatVariable : ScriptableObject

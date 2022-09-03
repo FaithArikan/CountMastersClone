@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using _Project.Player;
+using CountMasters.Player;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay
+namespace CountMasters.Gameplay
 {
     [RequireComponent(typeof(BoxCollider))]
     public class EnemyController : MonoBehaviour

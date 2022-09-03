@@ -1,9 +1,10 @@
-﻿using _Project.Scripts.Helpers;
+﻿using CountMasters.Helpers;
+using CountMasters.ScriptableObjects;
 using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace _Project.Scripts.Gameplay
+namespace CountMasters.Gameplay
 {
     public class CloneDestroy : MonoBehaviour
     {

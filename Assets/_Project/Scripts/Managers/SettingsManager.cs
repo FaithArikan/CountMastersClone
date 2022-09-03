@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Project.Scripts.Managers
+namespace CountMasters.Managers
 {
     public class SettingsManager : MonoBehaviour
     {

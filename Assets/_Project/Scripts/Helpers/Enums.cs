@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts.Helpers
+﻿namespace CountMasters.Helpers
 {
     public enum ResourceType
     {

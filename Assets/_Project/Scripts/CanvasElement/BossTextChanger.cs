@@ -1,7 +1,8 @@
-﻿using TMPro;
+﻿using CountMasters.Gameplay;
+using TMPro;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.CanvasElement
+namespace CountMasters.CanvasElement
 {
     public class BossTextChanger : MonoBehaviour
     {

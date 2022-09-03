@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Project.Scripts.Popups
+namespace CountMasters.Popups
 {
     public class WinPopup : MonoBehaviour
     {

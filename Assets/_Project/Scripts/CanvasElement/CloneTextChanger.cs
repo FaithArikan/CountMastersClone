@@ -1,16 +1,17 @@
-﻿using TMPro;
+﻿using CountMasters.ScriptableObjects;
+using TMPro;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.CanvasElement
+namespace CountMasters.CanvasElement
 {
     public class CloneTextChanger : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI cloneText;
-        [SerializeField] private Player.Player player;
+        [SerializeField] private CloneSO cloneList;
         
         public void OnCloneAmountChanged()
         {
-            cloneText.text = player.CloneAmount.ToString();
+            cloneText.text = cloneList.CloneAmount.ToString();
         }
 
     }

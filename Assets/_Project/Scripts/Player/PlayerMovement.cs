@@ -1,7 +1,7 @@
-﻿using _Project.Scripts.Helpers;
+﻿using CountMasters.Helpers;
 using UnityEngine;
 
-namespace _Project.Player
+namespace CountMasters.Player
 {
     public class PlayerMovement : MonoBehaviour
     {

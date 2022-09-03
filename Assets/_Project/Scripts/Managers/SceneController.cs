@@ -1,8 +1,7 @@
-﻿using _Project.Scripts.Helpers;
-using UnityEngine;
+﻿using CountMasters.Helpers;
 using UnityEngine.SceneManagement;
 
-namespace _Project.Scripts.Managers
+namespace CountMasters.Managers
 {
     public class SceneController : Singleton<SceneController>
     {

@@ -1,11 +1,10 @@
-﻿using System;
-using _Project.ScriptableObjects;
-using _Project.Scripts.Helpers;
+﻿using CountMasters.Helpers;
+using CountMasters.ScriptableObjects;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay
+namespace CountMasters.Gameplay
 {
     public class Gate : MonoBehaviour
     {

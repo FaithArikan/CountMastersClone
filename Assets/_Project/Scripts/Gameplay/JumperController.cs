@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay
+namespace CountMasters.Scripts.Gameplay
 {
     public class JumperController : MonoBehaviour
     {

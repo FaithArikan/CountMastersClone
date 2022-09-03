@@ -1,8 +1,8 @@
-﻿using _Project.Scripts.Helpers;
+﻿using CountMasters.Helpers;
 using DG.Tweening;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay
+namespace CountMasters.Gameplay
 {
     public class BossArea : MonoBehaviour
     {
