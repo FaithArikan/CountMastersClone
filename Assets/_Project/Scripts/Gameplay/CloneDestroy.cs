@@ -10,40 +10,52 @@ namespace CountMasters.Gameplay
     {
         [SerializeField] private GameEvent onTotalCloneAmountChanged;
         [SerializeField] private GameEvent onEnemyEnded;
+        [SerializeField] private CloneSO cloneList;
+        private Sequence _moveSeq;
 
         private void OnTriggerEnter(Collider other)
         {
             switch (other.gameObject.tag)
             {
                 case "Obstacle":
+                {
                     DestroyClone();
                     break;
+                }
                 case "Enemy":
+                {
                     DestroyClone();
                     DestroyEnemy(other.gameObject);
                     onEnemyEnded.Invoke();
                     break;
+                }
                 case "BossArea":
+                {
                     OnBossFightStarted(other.gameObject);
                     break;
+                }
                 case "Cliff":
+                {
                     FallOfTheCliff();
                     break;
+                }
                 case "Boss":
+                {
                     DestroyClone();
                     break;
+                }
             }
         }
 
         private void DestroyClone()
         {
-            GetComponentInParent<Player.Player>().CloneList.RemoveAt(0);
+            cloneList.RemoveClone(this);
             GetComponent<CapsuleCollider>().enabled = false;
             transform.parent = null;
+            transform.DOKill();
             Destroy(gameObject);
             onTotalCloneAmountChanged.Invoke();
         }
-        private Sequence _moveSeq;
         private void OnBossFightStarted(GameObject boss)
         {
             var bossPosition = boss.transform.position;
@@ -65,7 +77,7 @@ namespace CountMasters.Gameplay
             transform.DORotate(new Vector3(90,0,0), 1f);
             GetComponent<Rigidbody>().drag = 0;
             GetComponent<Rigidbody>().mass = 10;
-            GetComponentInParent<Player.Player>().CloneList.RemoveAt(0);
+            cloneList.RemoveClone(this);
             GetComponent<CapsuleCollider>().enabled = false;
             transform.parent = null;
             Destroy(gameObject, 2);
