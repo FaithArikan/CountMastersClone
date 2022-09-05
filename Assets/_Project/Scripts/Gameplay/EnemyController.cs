@@ -41,7 +41,7 @@ namespace CountMasters.Gameplay
                 PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
                 
                 var otherTransform = other.gameObject.transform;
-                playerMovement.CanMove = false;
+                playerMovement.StopMovement();
                 otherTransform.DOMove(new Vector3(transform.position.x, 0, transform.position.z), 1f).OnComplete((() =>                 
                 {
                     if (EnemyAmount != 0)
@@ -66,10 +66,10 @@ namespace CountMasters.Gameplay
             float x = Mathf.Sqrt(index + 1) * Mathf.Cos(Mathf.Deg2Rad * goldenAngle * (index + 1)) * 0.3f;
             float z = Mathf.Sqrt(index + 1) * Mathf.Sin(Mathf.Deg2Rad * goldenAngle * (index + 1)) * 0.3f;
 
-            Vector3 runnerLocalPosition = new Vector3(x, 1, z);
-            Vector3 runnerTargetWorldPosition = transform.TransformPoint(runnerLocalPosition);
+            Vector3 localPos = new Vector3(x, 0.5f, z);
+            Vector3 targetWorldPos = transform.TransformPoint(localPos);
 
-            return runnerTargetWorldPosition;
+            return targetWorldPos;
         }
     }
 }
