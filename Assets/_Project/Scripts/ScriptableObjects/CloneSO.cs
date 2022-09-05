@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CountMasters.ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "CloneSO")]
+    [CreateAssetMenu(menuName = "GamePlay/Clone", fileName = "Clone")]
     public class CloneSO : ScriptableObject
     {
          [SerializeField] private List<CloneDestroy> clonerList = new();

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CountMasters.Variables
 {
-    [CreateAssetMenu(menuName = "Float")]
+    [CreateAssetMenu(menuName = "Variables/Float", fileName = "Float")]
     public class FloatVariable : ScriptableObject
     {
         [SerializeField] private float floatValue;

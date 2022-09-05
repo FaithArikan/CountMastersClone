@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CountMasters.Variables
 {
-    [CreateAssetMenu(menuName = "Boolean")]
+    [CreateAssetMenu(menuName = "Variables/Boolean", fileName = "Boolean")]
     public class BooleanVariable : ScriptableObject
     {
         [SerializeField] private bool boolValue;

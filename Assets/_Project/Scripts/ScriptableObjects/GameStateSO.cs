@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CountMasters.ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "GameState", order = 2)]
+    [CreateAssetMenu(menuName = "Core/GameState", fileName = "GameState")]
     public class GameStateSO : ScriptableObject
     {
         [SerializeField] private GameEvent onGameStateChanged;

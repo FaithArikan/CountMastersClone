@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CountMasters.ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "Resource", order = 0)]
+    [CreateAssetMenu(menuName = "Core/Resource", fileName = "Resource")]
     public class ResourceSO : ScriptableObject
     {
         [SerializeField] private ResourceType resourceType;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CountMasters.Variables
 {
-    [CreateAssetMenu(menuName = "Int")]
+    [CreateAssetMenu(menuName = "Variables/Int", fileName = "Int")]
     public class IntVariable : ScriptableObject
     {
         [SerializeField] private int intValue;

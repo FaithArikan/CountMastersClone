@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CountMasters.ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "Gate", order = 1)]
+    [CreateAssetMenu(menuName = "GamePlay/Gate", fileName = "Gate")]
     public class GateSO : ScriptableObject
     {
         [Header("LeftGate")]
