@@ -1,7 +1,7 @@
 # CountMastersClone
 Clone of a very popular Count Masters (hypercasual) game.
 
-The things I used in this clone project, project done in 4 days:
+The things I used in this clone project:
 
 1-Observer Pattern(Project spessifically depends on game events and actions, this project can be called as event driven).
 
