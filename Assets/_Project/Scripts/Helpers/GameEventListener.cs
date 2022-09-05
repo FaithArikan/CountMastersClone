@@ -1,27 +1,47 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace CountMasters.Helpers
 {
     public class GameEventListener : MonoBehaviour
     {
-        public GameEvent[] Events;
-        public UnityEvent Response;
+        [SerializeField] private Listener[] listeners;
 
         private void OnEnable()
         {
-            foreach (var e in Events) e.RegisterListener(this);
+            foreach (Listener listener in listeners)
+            {
+                listener.Register();
+            }
         }
 
         private void OnDisable()
         {
-            foreach (var e in Events) e.UnregisterListener(this);
+            foreach (Listener listener in listeners)
+            {
+                listener.UnRegister();
+            }
         }
-
-        public void Invoke()
+        [Serializable]
+        public struct Listener
         {
-            Response.Invoke();
+            public GameEvent[] events;
+            public UnityEvent response;
+            public void Register()
+            {
+                foreach (GameEvent e in events) e.RegisterListener(this);
+            }
+
+            public void UnRegister()
+            {
+                foreach (GameEvent e in events) e.UnregisterListener(this);
+            }
+
+            public void Invoke()
+            {
+                response.Invoke();
+            }
         }
     }
-
 }
