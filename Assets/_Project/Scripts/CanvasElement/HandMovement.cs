@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CountMasters.Helpers;
+using CountMasters.ScriptableObjects;
 using DG.Tweening;
 using UnityEngine;
 
@@ -9,23 +10,22 @@ namespace CountMasters.CanvasElement
         [SerializeField] private Transform leftSide;
         [SerializeField] private Transform rightSide;
 
-        private int _multiplicationNumber;
-
-        public event Action<int> CloneMultiplicationAction;
-        private Sequence moveSequence;
+        [SerializeField] private FinishBarSO finishBarSo;
+        public GameEvent onFinishBarFinished;
+        private Sequence _moveSequence;
         public void OnFinish()
         {
-            _multiplicationNumber = 2;
+            //todo: fix
             float leftSidePoint = leftSide.transform.position.x - (leftSide.transform.localScale.x / 2) - 55;
             float rightSidePoint = rightSide.transform.position.x + (rightSide.transform.localScale.x / 2) + 20;
             transform.position = new Vector3(rightSidePoint, transform.position.y, transform.position.z);
-            moveSequence.Append(transform.DOMoveX(leftSidePoint, 1).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutCirc));
+            _moveSequence.Append(transform.DOMoveX(leftSidePoint, 1).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutCirc));
         }
 
         public void OnTap()
         {
-            DOTween.Kill(moveSequence);
-            CloneMultiplicationAction?.Invoke(_multiplicationNumber);
+            DOTween.Kill(_moveSequence);
+            onFinishBarFinished.Invoke();
         }
 
         private void OnTriggerEnter2D(Collider2D col)
@@ -33,13 +33,13 @@ namespace CountMasters.CanvasElement
             switch (col.gameObject.name)
             {
                 case "2x":
-                    _multiplicationNumber = 2;
+                    finishBarSo.MultiplicationAmount = 2;
                     break;
                 case "3x":
-                    _multiplicationNumber = 3;
+                    finishBarSo.MultiplicationAmount = 3;
                     break;
                 case "5x":
-                    _multiplicationNumber = 5;
+                    finishBarSo.MultiplicationAmount = 5;
                     break;
             }
         }
