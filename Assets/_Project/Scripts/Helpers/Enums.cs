@@ -2,8 +2,7 @@
 {
     public enum ResourceType
     {
-        Gold,
-        Clone
+        Gold
     }
     public enum GameState
     {
@@ -22,4 +21,10 @@
         Multiplication,
         Addition
     }
+    public enum CloneType
+    {
+        Player,
+        Enemy
+    }
+
 }
