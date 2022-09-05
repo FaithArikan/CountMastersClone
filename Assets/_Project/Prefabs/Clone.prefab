@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 633817894796560366}
   - component: {fileID: 633817894796560367}
   - component: {fileID: -4614646787936216770}
+  - component: {fileID: 3193789541124433791}
+  - component: {fileID: 719763065145963732}
+  - component: {fileID: -9141078288500881106}
   - component: {fileID: -1679985362533993150}
   m_Layer: 0
   m_Name: Clone
@@ -116,6 +119,64 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!195 &3193789541124433791
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633817894796560360}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0.1
+  m_AutoTraverseOffMeshLink: 0
+  m_AutoBraking: 1
+  m_AutoRepath: 0
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 1
+--- !u!95 &719763065145963732
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633817894796560360}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-9141078288500881106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633817894796560360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565509c20f6140d6acd1e63c304a2f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 719763065145963732}
+  navMeshAgent: {fileID: 3193789541124433791}
+  cloneList: {fileID: 11400000, guid: 76af590c7a223e6498da8745db91bc3e, type: 2}
+  type: 0
 --- !u!114 &-1679985362533993150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,3 +192,4 @@ MonoBehaviour:
   onTotalCloneAmountChanged: {fileID: 11400000, guid: 243917f4aee7be7468e1ef089903564d,
     type: 2}
   onEnemyEnded: {fileID: 11400000, guid: 66406db1e26e3e1458c51862f1c6410b, type: 2}
+  cloneList: {fileID: 11400000, guid: 76af590c7a223e6498da8745db91bc3e, type: 2}

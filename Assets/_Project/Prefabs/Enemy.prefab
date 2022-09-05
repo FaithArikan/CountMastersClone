@@ -188,6 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 256204841670515693}
   - component: {fileID: 256204841670515692}
+  - component: {fileID: 2236310079661972584}
   - component: {fileID: 256204841670515695}
   m_Layer: 0
   m_Name: Enemy
@@ -225,6 +226,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 30, y: 5, z: 11.67263}
   m_Center: {x: 0, y: 0, z: -8.523205}
+--- !u!95 &2236310079661972584
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256204841670515698}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &256204841670515695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d43fbec6cdd4f69b910ae4df8f6d1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startEnemyAmount: 3
+  startEnemyAmount: 7
   enemyPrefab: {fileID: 4486039344555305289, guid: 87c6e7553497b664e827ef7a856c70be,
     type: 3}
   enemyCountText: {fileID: 256204842198838743}
