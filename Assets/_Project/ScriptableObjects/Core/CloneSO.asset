@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9cfdbdcac664940a4443438a4e2e739, type: 3}
+  m_Name: CloneSO
+  m_EditorClassIdentifier: 
+  clonerList:
+  - {fileID: 0}
+  onTotalCloneAmountChanged: {fileID: 11400000, guid: 243917f4aee7be7468e1ef089903564d,
+    type: 2}
+  onLoseEvent: {fileID: 11400000, guid: 626f14c1b4c11924596fa663ab14fa36, type: 2}
