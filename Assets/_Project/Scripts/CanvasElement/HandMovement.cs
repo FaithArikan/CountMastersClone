@@ -1,4 +1,5 @@
-﻿using CountMasters.Helpers;
+﻿using System;
+using CountMasters.Helpers;
 using CountMasters.ScriptableObjects;
 using DG.Tweening;
 using UnityEngine;
@@ -13,13 +14,14 @@ namespace CountMasters.CanvasElement
         [SerializeField] private FinishBarSO finishBarSo;
         public GameEvent onFinishBarFinished;
         private Sequence _moveSequence;
+
+
         public void OnFinish()
         {
-            //todo: fix
-            float leftSidePoint = leftSide.transform.position.x - (leftSide.transform.localScale.x / 2) - 55;
-            float rightSidePoint = rightSide.transform.position.x + (rightSide.transform.localScale.x / 2) + 20;
-            transform.position = new Vector3(rightSidePoint, transform.position.y, transform.position.z);
-            _moveSequence.Append(transform.DOMoveX(leftSidePoint, 1).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutCirc));
+            float leftSidePoint = leftSide.transform.position.x - (leftSide.transform.localScale.x / 2) - 50;
+            float rightSidePoint = rightSide.transform.position.x + (rightSide.transform.localScale.x / 2);
+            transform.position = new Vector3(leftSidePoint, transform.position.y - 100, transform.position.z);
+            _moveSequence.Append(transform.DOMoveX(rightSidePoint, 1).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutCirc));
         }
 
         public void OnTap()
