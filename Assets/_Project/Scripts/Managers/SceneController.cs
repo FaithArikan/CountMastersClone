@@ -13,6 +13,7 @@ namespace CountMasters.Managers
         private void LoadBeginScenesAdditive()
         {
             SceneManager.LoadScene("ExampleGameScene", LoadSceneMode.Additive);
+            SceneManager.LoadScene("CanvasScene", LoadSceneMode.Additive);
         }
     }
 }
