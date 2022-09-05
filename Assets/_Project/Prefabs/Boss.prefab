@@ -476,23 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9b2a4752844d7bb49652703038e2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Events:
-  - {fileID: 11400000, guid: 586603b8c478a19408a6ed9b9fd455b1, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3187461438549363375}
-        m_TargetAssemblyTypeName: Assets._Project.Scripts.BossArea, Assembly-CSharp
-        m_MethodName: CloneEndState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  listeners: []
 --- !u!1 &3187461438554440044
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,20 +622,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9b2a4752844d7bb49652703038e2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Events:
-  - {fileID: 11400000, guid: 6a983147e37fec74794fb8a647c2b6e2, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 273966237}
-        m_TargetAssemblyTypeName: _Project.Scripts.BossTextChanger, Assembly-CSharp
-        m_MethodName: OnBossPowerAmountChanged
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  listeners:
+  - events:
+    - {fileID: 11400000, guid: d5296fa1279b7394488039f709657424, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1719323026}
+          m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
