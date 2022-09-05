@@ -1,6 +1,5 @@
 using System;
 using CountMasters.Helpers;
-using CountMasters.ScriptableObjects;
 using CountMasters.Gameplay;
 using UnityEngine;
 
@@ -8,14 +7,9 @@ namespace CountMasters.Player
 {
     public class Player : MonoBehaviour
     {
-        private int _startCloneAmount = 1;
-        private int _totalChangeCloneAmount;
-        
-        private List<GameObject> cloneList = new();
         private BoxCollider boxCol;
         
         [SerializeField] private GameEvent onTotalCloneAmountChanged;
-        [SerializeField] private GameEvent onLoseEvent;
         [SerializeField] private GameEvent onFinishAreaEvent;
 
         public event Action<int> CloneAdditionAction; 
@@ -26,29 +20,6 @@ namespace CountMasters.Player
             boxCol = GetComponent<BoxCollider>();
         }
         
-        public int StartCloneAmount
-        {
-            get => _startCloneAmount;
-            set => _startCloneAmount = value;
-        }
-
-        public List<GameObject> CloneList
-        {
-            get => cloneList;
-            set
-            {
-                cloneList = value;
-                onTotalCloneAmountChanged.Invoke();
-            }
-        }
-        
-        public void IsClonesFinished()
-        {
-            if(CloneList.Count > 0) return;
-            onLoseEvent.Invoke();
-        }
-
-        public int CloneAmount => cloneList.Count;
         private void OnTriggerEnter(Collider col)
         {
             if (col.gameObject.CompareTag("Finish"))
@@ -61,25 +32,45 @@ namespace CountMasters.Player
             {
                 switch (gate.GateSo.Features)
                 {
+                    //TODO: boxcolSize
                     case GateFeatures.Addition:
+                    {
                         gate.Collider.enabled = false;
                         if (gate.OtherGate != null)
                             gate.RemoveOtherGateCollider();
                         gate.RemoveCanvas();
                         CloneAdditionAction?.Invoke(gate.GateSo.Amount);
-                        boxCol.size = new Vector3(CloneList.Count / 40, boxCol.size.y, CloneList.Count / 20);
+                        boxCol.size = CombineColliderBounds(GetComponentsInChildren<Collider>()).extents * 2;
                         break;
+                    }
                     case GateFeatures.Multiplication:
+                    {
                         gate.Collider.enabled = false;
                         if (gate.OtherGate != null)
                             gate.RemoveOtherGateCollider();
                         gate.RemoveCanvas();
                         CloneMultiplicationAction?.Invoke(gate.GateSo.Amount);
-                        boxCol.size = new Vector3(CloneList.Count / 40, boxCol.size.y, CloneList.Count / 20);
+                        boxCol.size = CombineColliderBounds(GetComponentsInChildren<Collider>()).extents * 2;
                         break;
+                    }
                 }
                 onTotalCloneAmountChanged.Invoke();
+                foreach (var clone in GetComponentsInChildren<Clone>())
+                {
+                    clone.Init();
+                }
             }
+        }
+        
+        private Bounds CombineColliderBounds(Collider[] colliders)
+        {
+            var bounds = colliders[0].bounds;
+        
+            foreach (var colliderComponent in colliders)
+            {
+                bounds.Encapsulate(colliderComponent.bounds);
+            }
+            return bounds;
         }
     }
 }
