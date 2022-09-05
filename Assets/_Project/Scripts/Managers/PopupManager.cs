@@ -22,7 +22,6 @@ namespace CountMasters.Managers
         private void Awake()
         {
             _canvas = GetComponent<Canvas>();
-            _canvas.enabled = false;
         }
 
         public void OpenPopup()
