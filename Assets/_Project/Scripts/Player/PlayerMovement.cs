@@ -1,4 +1,5 @@
 ﻿using CountMasters.Helpers;
+using CountMasters.ScriptableObjects;
 using UnityEngine;
 
 namespace CountMasters.Player
@@ -8,29 +9,30 @@ namespace CountMasters.Player
         [SerializeField] private Joystick joystick;
         [SerializeField] private GameEvent onMoveValueChanged;
         [SerializeField] private MoveDirections moveDirections = MoveDirections.Forward;
-        [SerializeField] private bool _canMove;
-        [SerializeField] private float _speed;
-        [SerializeField] private float _sideSpeed;
+        [SerializeField] private PlayerSettingsSO playerSettings;
         
         private float horizontal;
-        public bool CanMove
+
+        private void Awake()
         {
-            get => _canMove;
-            set
-            {
-                _canMove = value;
-                onMoveValueChanged.Invoke();
-            }
+            StopMovement();
         }
 
-        public float Speed
+        public void StopMovement()
         {
-            get => _speed;
-            set => _speed = value;
+            if (!playerSettings.CanMove) return;
+            playerSettings.CanMove = false;
+            onMoveValueChanged.Invoke();
+        }
+        public void StartMovement()
+        {
+            if(playerSettings.CanMove) return;
+            playerSettings.CanMove = true;
+            onMoveValueChanged.Invoke();
         }
         private void Update()
         {
-             if(!CanMove) return;
+             if(!playerSettings.CanMove) return;
              Move();
         }
         private void Move()
@@ -46,14 +48,14 @@ namespace CountMasters.Player
             switch (moveDirections)
             {
                 case MoveDirections.Forward:
-                    transform.Translate(new Vector3(0, 0, Speed) * Time.deltaTime * 2);
+                    transform.Translate(new Vector3(0, 0, playerSettings.Speed) * Time.deltaTime * 2);
                     break;
                 case MoveDirections.Right:
-                    transform.Translate(new Vector3(_sideSpeed * horizontal, 0, Speed) * 
+                    transform.Translate(new Vector3(playerSettings.SideSpeed * horizontal, 0, playerSettings.Speed) * 
                                         Time.deltaTime * 2);
                     break;
                 case MoveDirections.Left:
-                    transform.Translate(new Vector3(_sideSpeed * horizontal, 0, Speed) * 
+                    transform.Translate(new Vector3(playerSettings.SideSpeed * horizontal, 0, playerSettings.Speed) * 
                                         Time.deltaTime * 2);
                     break;
             }
