@@ -1,6 +1,5 @@
 ﻿using CountMasters.Gameplay;
 using CountMasters.ScriptableObjects;
-using CountMasters.CanvasElement;
 using CountMasters.Helpers;
 using CountMasters.Variables;
 using UnityEngine;
@@ -10,75 +9,85 @@ namespace CountMasters.Player
     public class Cloner : MonoBehaviour
     {
         [SerializeField] private Player player;
+
+        [SerializeField] private IntVariable startCloneAmount;
         
-        [SerializeField] private HandMovement finishSpawner;
+        [SerializeField] private FinishBarSO finishBar;
 
         [SerializeField] private GameObject clonePrefab;
 
-        [SerializeField] private ResourceSO resourceSo;
-        private void Start()
+        [SerializeField] private CloneSO cloneList;
+
+        [SerializeField] private GameEvent onCloneMemberInstantiateCompleted;
+
+        public void OnLevelLoaded()
         {
-            var parent = player.transform;
-            Vector3 pos = parent.position;
-            for (int i = 0; i < player.StartCloneAmount; i++)
-            {
-                Instantiate(clonePrefab, GetPosition(i), Quaternion.identity,  parent);
-                player.CloneList.Add(clonePrefab);
-            }
+            ClearCloneList();
+            StartSpawn(startCloneAmount.Value);
         }
 
+        private void ClearCloneList()
+        {
+            cloneList.InitializeList();
+        }
         private void OnEnable()
         {
             player.CloneAdditionAction += AdditionClone;
-            finishSpawner.CloneMultiplicationAction += MultiplicationClone;
             player.CloneMultiplicationAction += MultiplicationClone;
         }
 
         private void OnDisable()
         {
             player.CloneAdditionAction -= AdditionClone;
-            finishSpawner.CloneMultiplicationAction -= MultiplicationClone;
             player.CloneMultiplicationAction -= MultiplicationClone;
         }
 
+        private void StartSpawn(int startingAmount)
+        {
+            if (startingAmount <= 1)
+            {
+                startingAmount = 1;
+            }
+            for (int i = 0; i < startingAmount; i++)
+            {
+                CloneDestroy cloneGo = Instantiate(clonePrefab, transform).
+                    GetComponent<CloneDestroy>();
+                cloneList.AddClone(cloneGo);
+            }
+        }
+        
         private void MultiplicationClone(int multAmount)
         {
-            int cloneAmount = (player.CloneAmount * multAmount) - player.CloneAmount;
+            int cloneAmount = (cloneList.CloneAmount * multAmount) - cloneList.CloneAmount;
             for (int i = 0; i < cloneAmount; i++)
             {
-                Instantiate(clonePrefab, GetPosition(i), Quaternion.identity,  transform);
-                player.CloneList.Add(clonePrefab);
+                CloneDestroy cloneGo = Instantiate(clonePrefab, transform).
+                    GetComponent<CloneDestroy>();
+                cloneList.AddClone(cloneGo);
             }
+            onCloneMemberInstantiateCompleted.Invoke();
         }
 
         public void FinishMultiplicationClone()
         {
-            int cloneAmount = (player.CloneAmount * resourceSo.Amount) - player.CloneAmount;
+            int cloneAmount = (cloneList.CloneAmount * finishBar.MultiplicationAmount) - cloneList.CloneAmount;
             for (int i = 0; i < cloneAmount; i++)
             {
-                Instantiate(clonePrefab, GetPosition(i), Quaternion.identity,  transform);
-                player.CloneList.Add(clonePrefab);
+                CloneDestroy cloneGo = Instantiate(clonePrefab, transform).
+                    GetComponent<CloneDestroy>();
+                cloneList.AddClone(cloneGo);
             }
+            onCloneMemberInstantiateCompleted.Invoke();
         }
         private void AdditionClone(int addAmount)
         {
             for (int i = 0; i < addAmount; i++)
             {
-                Instantiate(clonePrefab, GetPosition(i), Quaternion.identity,  transform);
-                player.CloneList.Add(clonePrefab);
+                CloneDestroy cloneGo = Instantiate(clonePrefab, transform).
+                    GetComponent<CloneDestroy>();
+                cloneList.AddClone(cloneGo);
             }
-        }
-        private Vector3 GetPosition(int index)
-        {
-            float goldenAngle = 137.5f;  
-
-            float x = Mathf.Sqrt(index + 1) * Mathf.Cos(Mathf.Deg2Rad * goldenAngle * (index + 1)) * 0.3f;
-            float z = Mathf.Sqrt(index + 1) * Mathf.Sin(Mathf.Deg2Rad * goldenAngle * (index + 1)) * 0.3f;
-
-            Vector3 runnerLocalPosition = new Vector3(x, 1, z);
-            Vector3 runnerTargetWorldPosition = transform.TransformPoint(runnerLocalPosition);
-
-            return runnerTargetWorldPosition;
+            onCloneMemberInstantiateCompleted.Invoke();
         }
     }
 }
