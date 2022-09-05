@@ -5,16 +5,10 @@ namespace CountMasters.Managers
 {
     public class GameManager : Singleton<GameManager>
     {
-        [SerializeField] private GameEvent onLevelLoaded;
         private void Start()
         {
+            //TODO: DELETE IN GAME SCENE - CONTROLLERS
             Application.targetFrameRate = 60;
-            OnLevelLoaded();
-        }
-
-        private void OnLevelLoaded()
-        {
-            onLevelLoaded.Invoke();
         }
         public void OnLose()
         {
