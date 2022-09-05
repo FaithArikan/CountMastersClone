@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 1144510402}
   - component: {fileID: 1144510404}
   - component: {fileID: 1144510403}
-  - component: {fileID: 1144510405}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -213,23 +212,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9b2a4752844d7bb49652703038e2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Events:
-  - {fileID: 11400000, guid: 626f14c1b4c11924596fa663ab14fa36, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1144510404}
-        m_TargetAssemblyTypeName: Assets._Project.Scripts.GameManager, Assembly-CSharp
-        m_MethodName: OnLose
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  listeners:
+  - events:
+    - {fileID: 11400000, guid: 626f14c1b4c11924596fa663ab14fa36, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1144510404}
+          m_TargetAssemblyTypeName: CountMasters.Managers.GameManager, Assembly-CSharp
+          m_MethodName: OnLose
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - events:
+    - {fileID: 11400000, guid: 586603b8c478a19408a6ed9b9fd455b1, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1144510404}
+          m_TargetAssemblyTypeName: CountMasters.Managers.GameManager, Assembly-CSharp
+          m_MethodName: OnWin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1144510404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,32 +259,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732ad95782dd4d788d6606c703b0f230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1144510405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144510401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9b2a4752844d7bb49652703038e2a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Events:
-  - {fileID: 11400000, guid: 586603b8c478a19408a6ed9b9fd455b1, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1144510404}
-        m_TargetAssemblyTypeName: Assets._Project.Scripts.GameManager, Assembly-CSharp
-        m_MethodName: OnWin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  onLevelLoaded: {fileID: 11400000, guid: 0dd9b37f5b76b9843b23a996e53faac7, type: 2}
