@@ -1,5 +1,6 @@
 ﻿using CountMasters.ScriptableObjects;
 using CountMasters.Helpers;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,8 @@ namespace CountMasters.Gameplay
         [SerializeField] private CloneSO cloneList;
         
         public CloneType type;
+        private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+        
 
         public void Init()
         {
@@ -29,6 +32,8 @@ namespace CountMasters.Gameplay
         {
             if (!navMeshAgent.enabled || !transform.parent) return;
             navMeshAgent.SetDestination(transform.parent.position);
+            Quaternion rotation = Quaternion.identity;
+            transform.rotation = rotation;
             float dist = Vector3.Distance(transform.localPosition, Vector3.zero);
             float speed = navMeshAgent.speed - Time.deltaTime;
             navMeshAgent.speed = Mathf.Clamp(speed*dist, 0.3f, 6);
@@ -36,10 +41,10 @@ namespace CountMasters.Gameplay
 
         private void StartAnimation()
         {
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
             if (type == CloneType.Player)
             {
-                //Setting Run Animation
+                animator.SetBool(IsMoving, true);
             }
         }
     }
