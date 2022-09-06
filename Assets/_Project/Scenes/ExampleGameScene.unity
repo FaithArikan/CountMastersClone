@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 235839900}
   - component: {fileID: 235839903}
   - component: {fileID: 235839911}
+  - component: {fileID: 235839912}
   - component: {fileID: 235839901}
   m_Layer: 0
   m_Name: Player
@@ -437,6 +438,57 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - events:
+    - {fileID: 11400000, guid: 03dec156062ec214798a373d486324cc, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 235839900}
+          m_TargetAssemblyTypeName: CountMasters.Player.PlayerMovement, Assembly-CSharp
+          m_MethodName: StopMovement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - events:
+    - {fileID: 11400000, guid: 27d78b4dbf5c57d4d854d55300af17da, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 235839903}
+          m_TargetAssemblyTypeName: CountMasters.Player.Cloner, Assembly-CSharp
+          m_MethodName: LevelBeginClonesInit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - events:
+    - {fileID: 11400000, guid: 243917f4aee7be7468e1ef089903564d, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 235839912}
+          m_TargetAssemblyTypeName: CountMasters.Player.PlayerCollider, Assembly-CSharp
+          m_MethodName: SetColliderSize
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &235839903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,6 +552,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cloneList: {fileID: 11400000, guid: 76af590c7a223e6498da8745db91bc3e, type: 2}
   radius: 3
+--- !u!114 &235839912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235839897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e08035becdb4ac593c629933ccb729e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &329524906
 GameObject:
   m_ObjectHideFlags: 1
