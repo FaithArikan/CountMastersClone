@@ -11,7 +11,7 @@ namespace CountMasters.CanvasElement
 
         private void Start()
         {
-            bossPowerText.text = bossController.BossPower.ToString();
+            OnBossPowerAmountChanged();
         }
 
         public void OnBossPowerAmountChanged()
