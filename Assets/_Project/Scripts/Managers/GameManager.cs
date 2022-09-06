@@ -7,7 +7,6 @@ namespace CountMasters.Managers
     {
         private void Start()
         {
-            //TODO: DELETE IN GAME SCENE - CONTROLLERS
             Application.targetFrameRate = 60;
         }
         public void OnLose()
