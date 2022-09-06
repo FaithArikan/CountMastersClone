@@ -2,7 +2,7 @@
 using CountMasters.ScriptableObjects;
 using DG.Tweening;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using UnityEngine.AI;
 
 namespace CountMasters.Gameplay
 {
@@ -11,7 +11,18 @@ namespace CountMasters.Gameplay
         [SerializeField] private GameEvent onTotalCloneAmountChanged;
         [SerializeField] private GameEvent onEnemyEnded;
         [SerializeField] private CloneSO cloneList;
+        
         private Sequence _moveSeq;
+        private Rigidbody _rb;
+        private NavMeshAgent _agent;
+        private CapsuleCollider _col;
+
+        private void Start()
+        {
+            _rb = GetComponent<Rigidbody>();
+            _col = GetComponent<CapsuleCollider>();
+            _agent = GetComponent<NavMeshAgent>();
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -50,7 +61,7 @@ namespace CountMasters.Gameplay
         private void DestroyClone()
         {
             cloneList.RemoveClone(GetComponent<Clone>());
-            GetComponent<CapsuleCollider>().enabled = false;
+            _col.enabled = false;
             transform.parent = null;
             transform.DOKill();
             Destroy(gameObject);
@@ -66,9 +77,9 @@ namespace CountMasters.Gameplay
         private void OnBossFightStarted(GameObject boss)
         {
             var bossPosition = boss.transform.position;
-            _moveSeq.Append(transform.DOMove(new Vector3(Random.Range(bossPosition.x + 1, bossPosition.x - 1), transform.position.y, 
-                Random.Range(bossPosition.z + 1, bossPosition.z - 1)), Random.Range(0.8f, 2f)));
+            _agent.SetDestination(bossPosition);
         }
+        
         private void DestroyEnemy(GameObject enemy)
         {
             EnemyController enemyController = enemy.GetComponentInParent<EnemyController>();
@@ -82,10 +93,11 @@ namespace CountMasters.Gameplay
         private void FallOfTheCliff()
         {
             transform.DORotate(new Vector3(90,0,0), 1f);
-            GetComponent<Rigidbody>().drag = 0;
-            GetComponent<Rigidbody>().mass = 10;
+            _rb.drag = 0;
+            _rb.mass = 10;
             cloneList.RemoveClone(GetComponent<Clone>());
-            GetComponent<CapsuleCollider>().enabled = false;
+            _agent.enabled = false;
+            _col.enabled = false;
             transform.parent = null;
             Destroy(gameObject, 2);
             onTotalCloneAmountChanged.Invoke();
