@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CountMasters.SaveSystem;
+using UnityEngine;
 
 namespace CountMasters.LevelManagement
 {
@@ -9,6 +10,16 @@ namespace CountMasters.LevelManagement
         {
             get => _isLevelDone;
             set => _isLevelDone = value;
+        }
+        
+        private void OnEnable()
+        {
+            IsLevelDone = SaveManager.Load<bool>("IsLevelDone");
+        }
+
+        private void OnDisable()
+        {
+            SaveManager.Save(IsLevelDone, "IsLevelDone");
         }
     }
 }
