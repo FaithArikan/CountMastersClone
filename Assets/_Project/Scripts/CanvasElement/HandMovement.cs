@@ -1,5 +1,4 @@
-﻿using System;
-using CountMasters.Helpers;
+﻿using CountMasters.Helpers;
 using CountMasters.ScriptableObjects;
 using DG.Tweening;
 using UnityEngine;
@@ -18,9 +17,9 @@ namespace CountMasters.CanvasElement
 
         public void OnFinish()
         {
-            float leftSidePoint = leftSide.transform.position.x - (leftSide.transform.localScale.x / 2) - 50;
+            float leftSidePoint = leftSide.transform.position.x - (leftSide.transform.localScale.x / 2);
             float rightSidePoint = rightSide.transform.position.x + (rightSide.transform.localScale.x / 2);
-            transform.position = new Vector3(leftSidePoint, transform.position.y - 100, transform.position.z);
+            transform.position = new Vector3(leftSidePoint, transform.position.y - 60, transform.position.z);
             _moveSequence.Append(transform.DOMoveX(rightSidePoint, 1).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutCirc));
         }
 
