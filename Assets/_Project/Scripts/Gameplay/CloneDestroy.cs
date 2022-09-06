@@ -49,7 +49,7 @@ namespace CountMasters.Gameplay
 
         private void DestroyClone()
         {
-            cloneList.RemoveClone(this);
+            cloneList.RemoveClone(GetComponent<Clone>());
             GetComponent<CapsuleCollider>().enabled = false;
             transform.parent = null;
             transform.DOKill();
@@ -77,7 +77,7 @@ namespace CountMasters.Gameplay
             transform.DORotate(new Vector3(90,0,0), 1f);
             GetComponent<Rigidbody>().drag = 0;
             GetComponent<Rigidbody>().mass = 10;
-            cloneList.RemoveClone(this);
+            cloneList.RemoveClone(GetComponent<Clone>());
             GetComponent<CapsuleCollider>().enabled = false;
             transform.parent = null;
             Destroy(gameObject, 2);
