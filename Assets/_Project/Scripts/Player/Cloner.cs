@@ -50,9 +50,17 @@ namespace CountMasters.Player
             }
             for (int i = 0; i < startingAmount; i++)
             {
-                CloneDestroy cloneGo = Instantiate(clonePrefab, transform).
-                    GetComponent<CloneDestroy>();
-                cloneList.AddClone(cloneGo);
+                Clone clone = Instantiate(clonePrefab, transform).
+                    GetComponent<Clone>();
+                cloneList.AddClone(clone);
+            }
+        }
+
+        public void LevelBeginClonesInit()
+        {
+            foreach (var clone in GetComponentsInChildren<Clone>())
+            {
+                clone.Init();
             }
         }
         
@@ -61,9 +69,10 @@ namespace CountMasters.Player
             int cloneAmount = (cloneList.CloneAmount * multAmount) - cloneList.CloneAmount;
             for (int i = 0; i < cloneAmount; i++)
             {
-                CloneDestroy cloneGo = Instantiate(clonePrefab, transform).
-                    GetComponent<CloneDestroy>();
-                cloneList.AddClone(cloneGo);
+                Clone clone = Instantiate(clonePrefab, transform).
+                    GetComponent<Clone>();
+                cloneList.AddClone(clone);
+                clone.Init();
             }
             onCloneMemberInstantiateCompleted.Invoke();
         }
@@ -73,9 +82,10 @@ namespace CountMasters.Player
             int cloneAmount = (cloneList.CloneAmount * finishBar.MultiplicationAmount) - cloneList.CloneAmount;
             for (int i = 0; i < cloneAmount; i++)
             {
-                CloneDestroy cloneGo = Instantiate(clonePrefab, transform).
-                    GetComponent<CloneDestroy>();
+                Clone cloneGo = Instantiate(clonePrefab, transform).
+                    GetComponent<Clone>();
                 cloneList.AddClone(cloneGo);
+                cloneGo.Init();
             }
             onCloneMemberInstantiateCompleted.Invoke();
         }
@@ -83,9 +93,10 @@ namespace CountMasters.Player
         {
             for (int i = 0; i < addAmount; i++)
             {
-                CloneDestroy cloneGo = Instantiate(clonePrefab, transform).
-                    GetComponent<CloneDestroy>();
+                Clone cloneGo = Instantiate(clonePrefab, transform).
+                    GetComponent<Clone>();
                 cloneList.AddClone(cloneGo);
+                cloneGo.Init();
             }
             onCloneMemberInstantiateCompleted.Invoke();
         }
