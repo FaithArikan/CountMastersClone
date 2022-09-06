@@ -10,6 +10,11 @@ namespace CountMasters.Player
         {
             boxCol = GetComponent<BoxCollider>();
         }
+
+        public void SetBeginSize()
+        {
+            boxCol.size = new Vector3(1, 2, 1);
+        }
         
         public void SetColliderSize()
         {
