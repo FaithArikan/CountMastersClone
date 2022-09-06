@@ -10,7 +10,6 @@ namespace CountMasters.Player
         
         [SerializeField] private GameEvent onTotalCloneAmountChanged;
         [SerializeField] private GameEvent onFinishAreaEvent;
-
         public event Action<int> CloneAdditionAction; 
         public event Action<int> CloneMultiplicationAction;
         
