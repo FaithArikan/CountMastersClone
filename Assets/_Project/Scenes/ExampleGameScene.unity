@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 140c311dd8ef95943ac4aacb00da9fcd, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 94278ec67fc7fb448a283920f5b96ec9, type: 2}
 --- !u!1 &26356432
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,10 +293,10 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 235839900}
-          m_TargetAssemblyTypeName: CountMasters.Player.PlayerMovement, Assembly-CSharp
-          m_MethodName: StopMovement
-          m_Mode: 1
+        - m_Target: {fileID: 511314627}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -305,10 +305,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 511314627}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
+        - m_Target: {fileID: 235839900}
+          m_TargetAssemblyTypeName: CountMasters.Player.PlayerMovement, Assembly-CSharp
+          m_MethodName: StopMovement
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -322,18 +322,6 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 235839900}
-          m_TargetAssemblyTypeName: CountMasters.Player.PlayerMovement, Assembly-CSharp
-          m_MethodName: StartMovement
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 235839903}
           m_TargetAssemblyTypeName: CountMasters.Player.Cloner, Assembly-CSharp
           m_MethodName: FinishMultiplicationClone
@@ -392,6 +380,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 235839900}
+          m_TargetAssemblyTypeName: CountMasters.Player.PlayerMovement, Assembly-CSharp
+          m_MethodName: StopMovement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - events:
     - {fileID: 11400000, guid: d5296fa1279b7394488039f709657424, type: 2}
     response:
@@ -412,23 +412,6 @@ MonoBehaviour:
         - m_Target: {fileID: 235839900}
           m_TargetAssemblyTypeName: CountMasters.Player.PlayerMovement, Assembly-CSharp
           m_MethodName: StartMovement
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - events:
-    - {fileID: 11400000, guid: 03dec156062ec214798a373d486324cc, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 235839900}
-          m_TargetAssemblyTypeName: CountMasters.Player.PlayerMovement, Assembly-CSharp
-          m_MethodName: StopMovement
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -488,6 +471,71 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+  - events:
+    - {fileID: 11400000, guid: b8f919f6aebed0840b899495d8bb8ddd, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 235839900}
+          m_TargetAssemblyTypeName: CountMasters.Player.PlayerMovement, Assembly-CSharp
+          m_MethodName: SetPlayerStartPosition
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 511314627}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 235839912}
+          m_TargetAssemblyTypeName: CountMasters.Player.PlayerCollider, Assembly-CSharp
+          m_MethodName: SetBeginSize
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 235839903}
+          m_TargetAssemblyTypeName: CountMasters.Player.Cloner, Assembly-CSharp
+          m_MethodName: LevelBeginClonesInit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 235839900}
+          m_TargetAssemblyTypeName: CountMasters.Player.PlayerMovement, Assembly-CSharp
+          m_MethodName: StopMovement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &235839903
 MonoBehaviour:
@@ -998,9 +1046,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - {fileID: 47654854536124241, guid: c933cd351556aec41b0afd7a4a3a7dad, type: 3}
   - {fileID: 47654854536124241, guid: 96c2b3bc32188c34fbb96ae0655ba4a7, type: 3}
-  levelHolder: {fileID: 1398320777}
+  - {fileID: 47654854536124241, guid: c933cd351556aec41b0afd7a4a3a7dad, type: 3}
+  levelHolder: {fileID: 1398320776}
   onLevelLoaded: {fileID: 11400000, guid: 0dd9b37f5b76b9843b23a996e53faac7, type: 2}
 --- !u!114 &568628596
 MonoBehaviour:
@@ -1023,6 +1071,23 @@ MonoBehaviour:
         - m_Target: {fileID: 568628595}
           m_TargetAssemblyTypeName: CountMasters.LevelManagement.LevelManager, Assembly-CSharp
           m_MethodName: SetLevelIsDone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - events:
+    - {fileID: 11400000, guid: b8f919f6aebed0840b899495d8bb8ddd, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 568628595}
+          m_TargetAssemblyTypeName: CountMasters.LevelManagement.LevelManager, Assembly-CSharp
+          m_MethodName: LoadLevel
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
