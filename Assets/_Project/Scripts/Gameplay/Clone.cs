@@ -1,6 +1,4 @@
-﻿using CountMasters.ScriptableObjects;
-using CountMasters.Helpers;
-using Unity.Mathematics;
+﻿using CountMasters.Helpers;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,8 +8,6 @@ namespace CountMasters.Gameplay
     {
         [SerializeField] private Animator animator;
         [SerializeField] private NavMeshAgent navMeshAgent;
-
-        [SerializeField] private CloneSO cloneList;
         
         public CloneType type;
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
