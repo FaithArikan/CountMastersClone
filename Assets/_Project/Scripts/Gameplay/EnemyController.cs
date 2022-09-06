@@ -12,8 +12,8 @@ namespace CountMasters.Gameplay
         [SerializeField] private int startEnemyAmount;
         private List<GameObject> _enemyList = new();
         [SerializeField] private GameObject enemyPrefab;
-        
-        public int EnemyAmount => EnemyList.Count;
+
+        private int EnemyAmount => EnemyList.Count;
         [SerializeField] private TextMeshProUGUI enemyCountText;
         private Canvas _enemyCanvas;
 
@@ -27,8 +27,8 @@ namespace CountMasters.Gameplay
             _enemyCanvas = GetComponentInChildren<Canvas>();
             for (int i = 0; i < startEnemyAmount; i++)
             {
-                Instantiate(enemyPrefab, GetPosition(i), Quaternion.identity,  transform);
-                EnemyList.Add(enemyPrefab);
+                GameObject enemy = Instantiate(enemyPrefab, GetPosition(i), Quaternion.identity,  transform);
+                EnemyList.Add(enemy);
             }
 
             EnemyAmountTextControls();
@@ -42,10 +42,10 @@ namespace CountMasters.Gameplay
                 
                 var otherTransform = other.gameObject.transform;
                 playerMovement.StopMovement();
-                otherTransform.DOMove(new Vector3(transform.position.x, 0, transform.position.z), 1f).OnComplete((() =>                 
+                otherTransform.DOMove(new Vector3(transform.position.x, otherTransform.position.y, transform.position.z), 1f).OnComplete((() =>                 
                 {
                     if (EnemyAmount != 0)
-                        otherTransform.DOMove(new Vector3(transform.position.x, 0, transform.position.z), 0.1f);
+                        otherTransform.DOMove(new Vector3(transform.position.x, otherTransform.position.y, transform.position.z), 0.1f);
                 }
                 ));
             }
@@ -63,8 +63,8 @@ namespace CountMasters.Gameplay
         {
             float goldenAngle = 137.5f;  
 
-            float x = Mathf.Sqrt(index + 1) * Mathf.Cos(Mathf.Deg2Rad * goldenAngle * (index + 1)) * 0.3f;
-            float z = Mathf.Sqrt(index + 1) * Mathf.Sin(Mathf.Deg2Rad * goldenAngle * (index + 1)) * 0.3f;
+            float x = Mathf.Sqrt(index + 1) * Mathf.Cos(Mathf.Deg2Rad * goldenAngle * (index + 1)) * 0.5f;
+            float z = Mathf.Sqrt(index + 1) * Mathf.Sin(Mathf.Deg2Rad * goldenAngle * (index + 1)) * 0.5f;
 
             Vector3 localPos = new Vector3(x, 0.5f, z);
             Vector3 targetWorldPos = transform.TransformPoint(localPos);
