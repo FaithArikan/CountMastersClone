@@ -24,7 +24,6 @@ namespace CountMasters.LevelManagement
                 if (!levels[i].IsLevelDone)
                 {
                     _currentLevel = levels[i];
-                    Debug.Log(_currentLevel.name);
                     break;
                 }
             }
