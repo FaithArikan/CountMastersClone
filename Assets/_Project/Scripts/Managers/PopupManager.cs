@@ -36,6 +36,7 @@ namespace CountMasters.Managers
 
         public void OpenPopupWithAnimation()
         {
+            gameStateSo.GameState = GameState.Pause;
             panel.localScale = _minimizedPanelScale;
             OpenPopup();
             panel.DOScale(_normalPanelScale, animationDuration).SetUpdate(true);
