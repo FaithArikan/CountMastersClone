@@ -30,6 +30,11 @@ namespace CountMasters.Player
             playerSettings.CanMove = true;
             onMoveValueChanged.Invoke();
         }
+
+        public void SetPlayerStartPosition()
+        {
+            transform.position = new Vector3(0, 1, -30);
+        }
         private void Update()
         {
              if(!playerSettings.CanMove) return;
