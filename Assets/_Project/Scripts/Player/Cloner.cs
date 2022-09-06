@@ -69,10 +69,7 @@ namespace CountMasters.Player
             int cloneAmount = (cloneList.CloneAmount * multAmount) - cloneList.CloneAmount;
             for (int i = 0; i < cloneAmount; i++)
             {
-                Clone clone = Instantiate(clonePrefab, transform).
-                    GetComponent<Clone>();
-                cloneList.AddClone(clone);
-                clone.Init();
+                Spawn();
             }
             onCloneMemberInstantiateCompleted.Invoke();
         }
@@ -82,10 +79,7 @@ namespace CountMasters.Player
             int cloneAmount = (cloneList.CloneAmount * finishBar.MultiplicationAmount) - cloneList.CloneAmount;
             for (int i = 0; i < cloneAmount; i++)
             {
-                Clone cloneGo = Instantiate(clonePrefab, transform).
-                    GetComponent<Clone>();
-                cloneList.AddClone(cloneGo);
-                cloneGo.Init();
+                Spawn();
             }
             onCloneMemberInstantiateCompleted.Invoke();
         }
@@ -93,12 +87,17 @@ namespace CountMasters.Player
         {
             for (int i = 0; i < addAmount; i++)
             {
-                Clone cloneGo = Instantiate(clonePrefab, transform).
-                    GetComponent<Clone>();
-                cloneList.AddClone(cloneGo);
-                cloneGo.Init();
+                Spawn();
             }
             onCloneMemberInstantiateCompleted.Invoke();
+        }
+
+        private void Spawn()
+        {
+            Clone cloneGo = Instantiate(clonePrefab, transform).
+                GetComponent<Clone>();
+            cloneList.AddClone(cloneGo);
+            cloneGo.Init();
         }
     }
 }
