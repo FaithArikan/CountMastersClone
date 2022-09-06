@@ -11,7 +11,7 @@ The things I used in this clone project:
 
 4-Scriptable objects.
 
-5-Simple Additive scene management.
+5-Additive scene management.
 
 6-DoTween animations.
 
@@ -19,5 +19,12 @@ The things I used in this clone project:
 
 8-Prefabs.
 
-https://user-images.githubusercontent.com/80701332/186979797-108233bc-ec31-48ba-b3e8-270d5bb4649b.mp4
+9-Level Editor.
+
+10-NavMeshAgent AI.
+
+11-Binary Save System.
+
+
+https://user-images.githubusercontent.com/80701332/188751880-ff982f6a-dca1-4619-bd10-b3e96d22c1a3.mp4
 
