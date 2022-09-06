@@ -8,11 +8,11 @@ namespace CountMasters.ScriptableObjects
     [CreateAssetMenu(menuName = "GamePlay/Clone", fileName = "Clone")]
     public class CloneSO : ScriptableObject
     {
-         [SerializeField] private List<CloneDestroy> clonerList = new();
+         [SerializeField] private List<Clone> clonerList = new();
          [SerializeField] private GameEvent onTotalCloneAmountChanged;
          [SerializeField] private GameEvent onLoseEvent;
 
-         public List<CloneDestroy> Value
+         public List<Clone> Value
          {
              get => clonerList;
              set
@@ -28,20 +28,20 @@ namespace CountMasters.ScriptableObjects
              clonerList = new ();
          }
 
-         public void AddClone(CloneDestroy cloneDestroy)
+         public void AddClone(Clone clone)
          {
-             if (!clonerList.Contains(cloneDestroy))
+             if (!clonerList.Contains(clone))
              {
-                 clonerList.Add(cloneDestroy);
+                 clonerList.Add(clone);
                  InvokeOnValueChanged();
              }
          }
          
-         public void RemoveClone(CloneDestroy cloneDestroy)
+         public void RemoveClone(Clone clone)
          {
-             if (clonerList.Contains(cloneDestroy))
+             if (clonerList.Contains(clone))
              {
-                 clonerList.Remove(cloneDestroy);
+                 clonerList.Remove(clone);
                  InvokeOnValueChanged();
              }
          }
