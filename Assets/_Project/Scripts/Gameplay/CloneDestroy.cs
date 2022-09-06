@@ -56,6 +56,13 @@ namespace CountMasters.Gameplay
             Destroy(gameObject);
             onTotalCloneAmountChanged.Invoke();
         }
+
+        public void SimpleDestroy()
+        {
+            cloneList.RemoveClone(GetComponent<Clone>());
+            Destroy(gameObject);
+        }
+        
         private void OnBossFightStarted(GameObject boss)
         {
             var bossPosition = boss.transform.position;
